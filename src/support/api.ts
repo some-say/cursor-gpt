@@ -28,6 +28,13 @@ export class Api {
   readonly #api: OpenAIApi
 
   /**
+   * Default temperature to use in completion requests.
+   *
+   * @internal
+   */
+  readonly #defaultTemperature: number
+
+  /**
    * One-time check if the model is available and ready to use.
    *
    * @internal
@@ -37,9 +44,14 @@ export class Api {
   public constructor({
     apiKey,
     organization,
-    model
-  }: Pick<CursorGptConfig, "apiKey" | "organization" | "model">) {
+    model,
+    defaultTemperature = 0.2
+  }: Pick<
+    CursorGptConfig,
+    "apiKey" | "organization" | "model" | "defaultTemperature"
+  >) {
     this.model = model
+    this.#defaultTemperature = defaultTemperature
     this.#api = new OpenAIApi(new Configuration({ apiKey, organization }))
   }
 
@@ -71,7 +83,7 @@ export class Api {
    */
   public async complete(
     prompts: string[],
-    temperature: number = 0.1
+    temperature: number = this.#defaultTemperature
   ): Promise<string> {
     // Do not continue if model is not available.
     await this.#guardModel()

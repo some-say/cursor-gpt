@@ -3,7 +3,7 @@ import { config as dotenv } from "dotenv"
 import { createPathPrompt, getPathPrompts } from "./components/path"
 import { parsePathResponse } from "./components/path/parsers"
 import { Api, CursorGptConfigSchema } from "./support"
-import type { CursorGptMouseEvent, CursorGptPath } from "./components/path"
+import type { CursorGptPath, CursorGptPoint } from "./components/path"
 import type { CursorGptConfig, CursorGptOptions, OpenAiModel } from "./types"
 
 /**
@@ -72,7 +72,7 @@ export class CursorGpt {
   public async completePath(
     path: CursorGptPath,
     { timestampDelta, temperature, dryRun = false }: CursorGptOptions = {}
-  ): Promise<CursorGptMouseEvent[]> {
+  ): Promise<CursorGptPoint[]> {
     const prompts: string[] = this.generatePathPrompts(path)
 
     if (dryRun) {
@@ -130,6 +130,7 @@ export class CursorGpt {
       apiKey: process.env.OPENAI_API_KEY || undefined,
       organization: process.env.OPENAI_ORGANIZATION || undefined,
       model: process.env.OPENAI_MODEL || "gpt-4",
+      defaultTemperature: parseInt(`${process.env.OPENAI_TEMPERATURE || 0.1}`),
       ...config
     }
 

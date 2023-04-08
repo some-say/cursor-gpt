@@ -1,7 +1,7 @@
 import { z, ZodError } from "zod"
 
 import { CursorGptPointSchema } from "./schemas"
-import type { CursorGptMouseEvent } from "./types"
+import type { CursorGptPoint } from "./types"
 
 /**
  * Parses the ChatGPT string response into a list of valid points.
@@ -16,18 +16,19 @@ import type { CursorGptMouseEvent } from "./types"
 export const parsePathResponse = (
   response: string,
   timestampDelta: number = 0
-): CursorGptMouseEvent[] => {
+): CursorGptPoint[] => {
   try {
-    const points: CursorGptMouseEvent[] = z
+    const points: CursorGptPoint[] = z
       .array(CursorGptPointSchema)
       .parse(JSON.parse(response.trim()))
-      .map((point) => ({ ...point, timestamp: 0 }))
+
+    const baseTimestamp: number = Date.now() + timestampDelta
 
     points.forEach((point, i) => {
       if (i === 0) {
-        point.timestamp = Date.now() + timestampDelta
+        point.timestamp = baseTimestamp
       } else {
-        point.timestamp = points[i - 1].timestamp + points[i].deltaTime
+        point.timestamp = baseTimestamp + points[i].timestamp
       }
     })
 

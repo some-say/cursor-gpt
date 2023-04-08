@@ -19,12 +19,7 @@ export interface CursorGptPoint {
   x: number
   /** y coordinate in pixels */
   y: number
-  /** Delta in ms since the preceding point. */
-  deltaTime: number
-}
-
-export interface CursorGptMouseEvent extends CursorGptPoint {
-  /** Auto-resolved timestamp in ms. */
+  /** Time since start position in ms. */
   timestamp: number
 }
 

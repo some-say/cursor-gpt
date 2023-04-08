@@ -15,7 +15,5 @@ export const CursorGptConfigSchema: z.ZodType<CursorGptConfig> = z.object({
     ),
   organization: z.string().describe(`OpenAI organization id.`),
   model: z.string().describe(`GPT model to use.`),
-  durationRange: z
-    .tuple([z.number(), z.number()])
-    .describe(`Minimum and maximum duration range to randomize.`)
+  defaultTemperature: z.number().describe(`Default temperature to use.`)
 })

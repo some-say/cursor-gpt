@@ -12,6 +12,8 @@ export interface CursorGptConfig {
   organization: string
   /** OpenAI model */
   model: OpenAiModel
+  /** Default temperature to use for completion. */
+  defaultTemperature?: number
 }
 
 /**
