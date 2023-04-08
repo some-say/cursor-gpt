@@ -98,7 +98,7 @@ export const createPathPrompt = ({
   duration
 }: CursorGptPath): string =>
   merge(
-    `Use the following "Path Config" to draw a human-like mouse gesture path from the "Start Position" to the "End Position" and return it in the array format described above.`,
+    `Use the following values to draw a human-like mouse gesture path from the "Start Position" to the "End Position" using the rules provided above.`,
     `Start Position: { "x": ${start.x}, "y": ${start.y} }`,
     `End Position: { "x": ${end.x}, "y": ${end.y} }`,
     `Duration: ${duration}`,
