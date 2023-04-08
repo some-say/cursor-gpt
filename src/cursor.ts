@@ -4,7 +4,7 @@ import { createPathPrompt, getPathPrompts } from "./components/path"
 import { parsePathResponse } from "./components/path/parsers"
 import { Api, CursorGptConfigSchema } from "./support"
 import type { CursorGptMouseEvent, CursorGptPath } from "./components/path"
-import type { CursorGptConfig, CursorGptOptions } from "./types"
+import type { CursorGptConfig, CursorGptOptions, OpenAiModel } from "./types"
 
 export class CursorGpt {
   /**
@@ -33,6 +33,15 @@ export class CursorGpt {
   public constructor(config: Partial<CursorGptConfig> = {}) {
     this.#config = this.#configure(config)
     this.#api = new Api(this.#config)
+  }
+
+  /**
+   * Returns the current model in use.
+   *
+   * @public
+   */
+  public get model(): OpenAiModel {
+    return this.#config.model
   }
 
   /**
@@ -110,10 +119,6 @@ export class CursorGpt {
       apiKey: process.env.OPENAI_API_KEY || undefined,
       organization: process.env.OPENAI_ORGANIZATION || undefined,
       model: process.env.OPENAI_MODEL || undefined,
-      durationRange: [
-        parseInt(process.env.CURSOR_GPT_DURATION_MIN || "100"),
-        parseInt(process.env.CURSOR_GPT_DURATION_MAX || "1000")
-      ],
       ...config
     }
 
