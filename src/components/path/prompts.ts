@@ -26,8 +26,7 @@ export const pathPrompts: CursorGptPrompt[] = [
       `The "Start Position" and "End Position" are x and y floating point coordinates representing a point on the screen in pixels.`,
       `Avoid creating paths that are straight or follow a perfect curve as this is not a natural human gesture.`,
       `Paths should include a variety of mouse velocities and acceleration, and should have minor imperfections.`,
-      `Add random curvy variations and adjustments to the path in the way a human gesture would.`,
-      `Make sure the path "overshoots" the "End Position" by 1% or 2% and then return the "End Position" as this is a natural human behavior.`
+      `Add random curvy variations and adjustments to the path in the way a human gesture would, so long as it ends naturally at the "End Position".`
     )
   },
   {
@@ -37,7 +36,7 @@ export const pathPrompts: CursorGptPrompt[] = [
       `You will provide your responses as a JSON array of mouse coordinate objects in the following format:`,
       `{"x": number, "y": number, "timestamp": number }`,
       `The "x" and "y" values are the floating point coordinates of the mouse cursor at a given point in time. These should never represent a straight line.`,
-      `The first position in the series should be the "Start Position" coordinates with a "deltaTime" of 0, and the last position should be the "End Position" coordinates.`,
+      `The first position in the series should be the "Start Position" coordinates with a "timestamp" of 0, and the last position should be the "End Position" coordinates.`,
       `The "timestamp" value is the amount of time in milliseconds that has passed since the "Initial Timestamp" and represents mouse cursor velocity.`,
       `The timestamp velocity between points should accurately mimic the velocity of a natural user gesture.`,
       `The duration between the first and last timestamp should not exceed the provided "Duration".`,
