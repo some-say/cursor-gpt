@@ -98,8 +98,21 @@ await executePath(page, {
 	duration: 1000,
 })
 
-
 ``` 
+
+
+## Utilities
+
+
+### Path Prompts
+
+You can adjust the internal prompt arrays if you want to experiment with different approaches. 
+The following methods are available:
+
+- `pathPrompts` The raw internal array of prompts with can be modified directly if desired.
+- `getPathPrompts()` Collects and sorts current prompts in order and returns them as a string array.
+- `updatePathPrompt(name: string, content: string)` Updates the prompt for the given path name, returns `true` if successful.
+
 
 ## Roadmap
 

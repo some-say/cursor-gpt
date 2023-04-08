@@ -54,12 +54,28 @@ export const pathPrompts: CursorGptPrompt[] = [
   }
 ]
 
+/**
+ * Collects and sorts current prompts in order.
+ *
+ * @returns An array of prompt strings in order.
+ *
+ * @public
+ */
 export const getPathPrompts = (): string[] =>
   pathPrompts
     .sort((a, b) => a.order - b.order)
     .map(({ content }) => content)
     .filter((content) => content !== "\n")
 
+/**
+ * Generates the final execution prompt to trigger the completion.
+ *
+ * @param path - The path to complete.
+ *
+ * @returns The final execution prompt as string.
+ *
+ * @public
+ */
 export const createPathPrompt = ({
   start,
   end,
