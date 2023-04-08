@@ -1,7 +1,10 @@
 import { config as dotenv } from "dotenv"
 
-import { createPathPrompt, getPathPrompts } from "./components/path"
-import { parsePathResponse } from "./components/path/parsers"
+import {
+  createPathPrompt,
+  getPathPrompts,
+  parsePathResponse
+} from "./components/path"
 import { Api, CursorGptConfigSchema } from "./support"
 import type { CursorGptPath, CursorGptPoint } from "./components/path"
 import type { CursorGptConfig, CursorGptOptions, OpenAiModel } from "./types"
