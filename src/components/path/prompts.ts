@@ -109,18 +109,19 @@ export const createPathPrompt = ({
  * Update a prompt by name.
  *
  * @param name - The name of the prompt to update.
- * @param content - The new content of the prompt.
+ * @param lines - Any number of string lines to merge as the new content for the
+ * prompt.
  * @returns `true` if the prompt was updated, `false` otherwise.
  *
  * @public
  */
-export const updatePathPrompt = (name: string, content: string): boolean => {
+export const updatePathPrompt = (name: string, ...lines: string[]): boolean => {
   const prompt = pathPrompts.find((prompt) => prompt.name === name)
 
   if (!prompt) {
     return false
   }
 
-  prompt.content = content
+  prompt.content = merge(...lines)
   return true
 }
