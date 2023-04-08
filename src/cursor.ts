@@ -129,7 +129,7 @@ export class CursorGpt {
     const input: Partial<CursorGptConfig> = {
       apiKey: process.env.OPENAI_API_KEY || undefined,
       organization: process.env.OPENAI_ORGANIZATION || undefined,
-      model: process.env.OPENAI_MODEL || undefined,
+      model: process.env.OPENAI_MODEL || "gpt-4",
       ...config
     }
 
