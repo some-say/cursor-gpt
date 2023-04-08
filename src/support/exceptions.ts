@@ -1,3 +1,8 @@
+/**
+ * Throws to halt a dry run.
+ *
+ * @public
+ */
 export class DryRunHaltError extends Error {
   public override readonly name: string = "DryRunHaltError"
   public constructor() {
@@ -5,6 +10,11 @@ export class DryRunHaltError extends Error {
   }
 }
 
+/**
+ * Base API error class.
+ *
+ * @internal
+ */
 export class ApiError extends Error {
   public override readonly name: string = "ApiError"
 

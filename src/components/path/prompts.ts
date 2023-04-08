@@ -32,9 +32,7 @@ export const pathPrompts: CursorGptPrompt[] = [
     name: `response`,
     content: merge(
       `You will provide your responses as a JSON array of mouse coordinate objects in the following format:`,
-      `
-      {"x": number, "y": number, "deltaTime": number }
-      `,
+      `{"x": number, "y": number, "deltaTime": number }`,
       `The "x" and "y" values are the coordinates of the mouse cursor at a given point in time.`,
       `The first position in the series should be the "Start Position" coordinates with a "deltaTime" of 0, and the last position should be the "End Position" coordinates.`,
       `The "deltaTime" value is the amount of time in milliseconds that has passed since the previous position and represents mouse cursor velocity.`,

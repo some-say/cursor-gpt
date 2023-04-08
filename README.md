@@ -3,6 +3,7 @@
 ## Important
 
 > 💣 This project is still in development and is not yet ready to publish to NPM.
+> Performs poorly on `gpt-3.5-turbo`, much better results with `gpt-4`.
 
 ## Overview
 

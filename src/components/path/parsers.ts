@@ -3,6 +3,16 @@ import { z, ZodError } from "zod"
 import { CursorGptPointSchema } from "./schemas"
 import type { CursorGptMouseEvent } from "./types"
 
+/**
+ * Parses the ChatGPT string response into a list of valid points.
+ *
+ * @param response - ChatGPT response string.
+ * @param timestampDelta - Delta in ms to add to the first point's timestamp.
+ *
+ * @returns List of parsed points.
+ *
+ * @internal
+ */
 export const parsePathResponse = (
   response: string,
   timestampDelta: number = 0

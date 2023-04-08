@@ -4,18 +4,6 @@ import { CursorGpt } from "../cursor"
 import type { CursorGptPath } from "../components/path"
 import type { CursorGptConfig, CursorGptOptions } from "../types"
 
-export interface PuppeteerPlugin {
-  /** CursorGPT instance. */
-  readonly cursor: CursorGpt
-
-  /** Per-page handler for path completion and execution. */
-  executePath(
-    page: Page,
-    path: CursorGptPath,
-    options: CursorGptOptions
-  ): Promise<void>
-}
-
 /**
  * Create a per-Page handler for Puppeteer.
  * Uses CDP "mouseMoved" commands to move the cursor.
@@ -58,4 +46,21 @@ export const createPuppeteerCursor = (
     cursor,
     executePath
   } as const
+}
+
+/**
+ * Puppeteer plugin interface.
+ *
+ * @public
+ */
+export interface PuppeteerPlugin {
+  /** CursorGPT instance. */
+  readonly cursor: CursorGpt
+
+  /** Per-page handler for path completion and execution. */
+  executePath(
+    page: Page,
+    path: CursorGptPath,
+    options: CursorGptOptions
+  ): Promise<void>
 }

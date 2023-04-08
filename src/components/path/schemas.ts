@@ -10,5 +10,5 @@ import type { CursorGptPoint } from "./types"
 export const CursorGptPointSchema: z.ZodType<CursorGptPoint> = z.object({
   x: z.number().describe(`X coordinate.`),
   y: z.number().describe(`Y coordinate.`),
-  deltaTime: z.number().describe(`Time delta.`)
+  deltaTime: z.number().describe(`Time delta from preceding point.`)
 })

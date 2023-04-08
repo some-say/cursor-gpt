@@ -1,4 +1,5 @@
 export * from "./components/path"
 export * from "./cursor"
 export * from "./plugins/puppeteer"
+export * from "./support/exceptions"
 export * from "./types"

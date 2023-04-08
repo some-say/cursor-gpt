@@ -4,6 +4,11 @@ import { ChatCompletionRequestMessageRoleEnum } from "openai/api"
 import { nonNullable } from "./utils"
 import type { CursorGptConfig } from "../types"
 
+/**
+ * OpenAI API client wrapper.
+ *
+ * @public
+ */
 export class Api {
   /**
    * GPT model to use.
@@ -38,6 +43,13 @@ export class Api {
     this.#api = new OpenAIApi(new Configuration({ apiKey, organization }))
   }
 
+  /**
+   * Tests if the model is available and ready to use.
+   *
+   * @returns Boolean indicating if the model is ready.
+   *
+   * @public
+   */
   public async hasModel(): Promise<boolean> {
     const { data, status } = await this.#api.listModels()
     if (status !== 200) {
@@ -47,10 +59,21 @@ export class Api {
     return !!data.data.find((engine) => engine.id === this.model)
   }
 
+  /**
+   * Sends a request to the OpenAI API to complete a chat.
+   *
+   * @param prompts - Array of strings to use as prompts.
+   * @param temperature - ChatGPT temperature.
+   *
+   * @returns String of the completed prompt.
+   *
+   * @public
+   */
   public async complete(
     prompts: string[],
     temperature: number = 0.1
   ): Promise<string> {
+    // Do not continue if model is not available.
     await this.#guardModel()
 
     const { data, status } = await this.#api.createChatCompletion({
@@ -69,6 +92,13 @@ export class Api {
     return nonNullable(data.choices[0].message?.content, `No responses.`)
   }
 
+  /**
+   * Sends a request to the OpenAI API to ensure user has access to the model.
+   *
+   * @throws Error if model is not available.
+   *
+   * @internal
+   */
   async #guardModel(): Promise<void> {
     if (this.#ready) {
       return
@@ -83,6 +113,16 @@ export class Api {
     this.#ready = true
   }
 
+  /**
+   * Handles errors from OpenAI API http client.
+   *
+   * @param status - HTTP status code.
+   * @param message - Optional message to append to error.
+   *
+   * @throws Error with status code and message.
+   *
+   * @internal
+   */
   #handleError(
     status: number,
     message: string = "OpenAI request failed."

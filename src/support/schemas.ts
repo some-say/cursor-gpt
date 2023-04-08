@@ -2,6 +2,11 @@ import { z } from "zod"
 
 import type { CursorGptConfig } from "../types"
 
+/**
+ * Zod schema representing the CursorGPT configuration object.
+ *
+ * @public
+ */
 export const CursorGptConfigSchema: z.ZodType<CursorGptConfig> = z.object({
   apiKey: z
     .string()

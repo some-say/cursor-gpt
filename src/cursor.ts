@@ -6,6 +6,16 @@ import { Api, CursorGptConfigSchema } from "./support"
 import type { CursorGptMouseEvent, CursorGptPath } from "./components/path"
 import type { CursorGptConfig, CursorGptOptions, OpenAiModel } from "./types"
 
+/**
+ * CursorGPT
+ *
+ * Handles:
+ * - Interaction with individual components such as mouse paths, mouse
+ * scrolls, etc.
+ * - Sending requests to OpenAI API and returning parsed results.
+ *
+ * @public
+ */
 export class CursorGpt {
   /**
    * Configuration for instance.
@@ -90,8 +100,9 @@ export class CursorGpt {
 
   /**
    * Generates prompts for path completion requests.
-   * Available prompts are defined in `src/components/path/prompts.ts`.
    * Useful for debugging.
+   *
+   * @see `src/components/path/prompts.ts`.
    *
    * @param path - Defines the path to complete.
    * @returns Array of prompts.
