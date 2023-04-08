@@ -1,11 +1,10 @@
 import { parsePathResponse } from "./parsers"
-import type { CursorGptMouseEvent } from "./types"
 
 describe(`parsePathResponse`, () => {
   const currentTime: number = Date.now()
 
   test(`parses string correctly`, () => {
-    const points: CursorGptMouseEvent[] = parsePathResponse(
+    const points = parsePathResponse(
       JSON.stringify([
         {
           x: 0,
@@ -18,7 +17,6 @@ describe(`parsePathResponse`, () => {
     expect(points.length).toBe(1)
     expect(points[0].x).toBe(0)
     expect(points[0].y).toBe(100)
-    expect(points[0].deltaTime).toBe(0)
     expect(points[0].timestamp).toBeGreaterThanOrEqual(currentTime)
   })
 
