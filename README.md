@@ -142,15 +142,30 @@ await cursor.completePath({
 
 ```js
 [
-	{ x: 0, y: 100, deltaTime: 0, timestamp: 1680928631398 },
-	{ x: 20, y: 130, deltaTime: 100, timestamp: 1680928631498 },
-	{ x: 60, y: 180, deltaTime: 150, timestamp: 1680928631648 },
-	{ x: 120, y: 250, deltaTime: 200, timestamp: 1680928631848 },
-	{ x: 200, y: 320, deltaTime: 180, timestamp: 1680928632028 },
-	{ x: 300, y: 420, deltaTime: 170, timestamp: 1680928632198 },
-	{ x: 400, y: 520, deltaTime: 200, timestamp: 1680928632398 },
-	{ x: 460, y: 580, deltaTime: 100, timestamp: 1680928632498 },
-	{ x: 500, y: 600, deltaTime: 100, timestamp: 1680928632598 }
+	{ x: 0, y: 100, timestamp: 1680938489793 },
+	{ x: 15.4, y: 122.3, timestamp: 1680938489843 },
+	{ x: 37.2, y: 140.7, timestamp: 1680938489893 },
+	{ x: 62.5, y: 160.1, timestamp: 1680938489943 },
+	{ x: 95.3, y: 175.6, timestamp: 1680938489993 },
+	{ x: 130.8, y: 190.2, timestamp: 1680938490043 },
+	{ x: 168.4, y: 210.5, timestamp: 1680938490093 },
+	{ x: 205.9, y: 230.8, timestamp: 1680938490143 },
+	{ x: 240.3, y: 255.4, timestamp: 1680938490193 },
+	{ x: 275.7, y: 280.1, timestamp: 1680938490243 },
+	{ x: 310.1, y: 305.7, timestamp: 1680938490293 },
+	{ x: 342.6, y: 330.3, timestamp: 1680938490343 },
+	{ x: 375.1, y: 355, timestamp: 1680938490393 },
+	{ x: 407.6, y: 379.6, timestamp: 1680938490443 },
+	{ x: 440.1, y: 404.2, timestamp: 1680938490493 },
+	{ x: 470.5, y: 428.9, timestamp: 1680938490543 },
+	{ x: 500, y: 453.5, timestamp: 1680938490593 },
+	{ x: 515.4, y: 478.1, timestamp: 1680938490643 },
+	{ x: 530.8, y: 502.7, timestamp: 1680938490693 },
+	{ x: 546.2, y: 527.4, timestamp: 1680938490743 },
+	{ x: 561.6, y: 552, timestamp: 1680938490793 },
+	{ x: 577, y: 576.6, timestamp: 1680938490843 },
+	{ x: 592.4, y: 601.2, timestamp: 1680938490893 },
+	{ x: 500, y: 600, timestamp: 1680938490993 }
 ]
 ```
 
