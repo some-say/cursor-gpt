@@ -1,5 +1,9 @@
 # CursorGPT
 
+## Important
+
+> 💣 This project is still in development and is not yet ready to publish to NPM.
+
 ## Overview
 
 CursorGPT attempts to leverage the ChatGPT models via the OpenAI API to generate natural mouse movement events.
@@ -17,6 +21,31 @@ pnpm install cursor-gpt
 # Yarn
 yarn add cursor-gpt
 ```
+
+## Configuration
+
+There are two ways to configure the CursorGPT instance.
+
+### Environment Variables
+
+```dotenv
+OPENAI_API_KEY=your-openai-api-key
+OPENAI_ORGANIZATION=your-openai-organization
+OPENAI_MODEL=gpt-3.5-turbo|gpt4|etc
+```
+
+### Runtime Config
+
+```typescript
+interface CursorGptConfig {
+  /** OpenAI API key */
+  apiKey: string
+  /** OpenAI organization */
+  organization: string
+  /** OpenAI model */
+  model: string
+}
+``` 
 
 ## Usage
 
@@ -62,7 +91,7 @@ const { executePath } = usePuppeteerPlugin({
 	apiKey: "your-openai-api-key",
 	organization: "your-openai-organization",
 })
- 
+
 await executePath(page, {
 	start: { x: 0, y: 0 },
 	end: { x: 100, y: 100 },
