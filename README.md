@@ -123,11 +123,14 @@ The following methods are available:
 - [ ] Add option to generate paths in bulk when paths are known.
 - [ ] Test coverage > 80%.
 - [ ] Build curve checker for GPT-3.5 to search for straight line responses. 
+- [ ] Add runtime test to ensure final point and timestamp is correct.
 
 ## Sample Results
 
 Note: The following results are generated using the `gpt-4` model, `gpt-3.5-turbo` performs significantly worse 
 presently.
+
+You can preview generated paths in this [jsfiddle tool](https://jsfiddle.net/darkpatterns/abhtuvro/30/ ).
 
 ```typescript
 await cursor.completePath({
