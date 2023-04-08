@@ -146,3 +146,6 @@ await cursor.completePath({
 ]
 ```
 
+![image](https://user-images.githubusercontent.com/65471523/230703465-ed7cf9e4-92df-41f4-951e-99363a92654b.png)
+
+
