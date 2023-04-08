@@ -65,7 +65,7 @@ function generateMousePath({ start: { x: number, y: number }, end: { x: number, 
       `Do not include any natural language in your response, only return a JSON array.`,
       `Make use of any information you have about modelling human mouse gestures, and any mouse gesture data you have collected.`,
       `Ensure the content of your response can be parsed as a valid JSON array using the JavaScript "JSON.parse()" function.`,
-      `Imagine the shape of the path and check it meets the requirements before generating the response.`
+      `Imagine the shape of the path and check it meets the requirements before drawing it and generating the response.`
     )
   }
 ]
