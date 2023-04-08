@@ -3,7 +3,10 @@
 ## Important
 
 > 💣 This project is still in development and is not yet ready to publish to NPM.
-> Performs poorly on `gpt-3.5-turbo`, much better results with `gpt-4`.
+
+> 🤖 Performs poorly on `gpt-3.5-turbo`, much better results with `gpt-4`. GPT-4 seems to perform best with low 
+> temperatures, and 3.5 seems to require higher temperatures. Note that higher temperatures will result in more 
+> schema errors, so a retry mechanism is recommended.
 
 ## Overview
 
@@ -119,6 +122,7 @@ The following methods are available:
 - [ ] Add option to generate a path with a specific number of points.
 - [ ] Add option to generate paths in bulk when paths are known.
 - [ ] Test coverage > 80%.
+- [ ] Build curve checker for GPT-3.5 to search for straight line responses. 
 
 ## Sample Results
 
